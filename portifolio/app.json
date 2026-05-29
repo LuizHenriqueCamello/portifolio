@@ -1,8 +1,10 @@
 {
   "expo": {
     "name": "portifolio",
-    "slug": "portifolio",
+    "slug": "portfolio-mobile",
+    "owner": "web-e-mobile",
     "version": "1.0.0",
+    "sdkVersion": "54.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "portifolio",
@@ -38,11 +40,24 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "48dc638e-f824-4377-929b-a6e5eee4b368"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/48dc638e-f824-4377-929b-a6e5eee4b368"
     }
   }
 }
