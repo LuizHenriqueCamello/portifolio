@@ -13,6 +13,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { SwipeNavigator } from '../../components/SwipeNavigator';
 
 const { width, height } = Dimensions.get('window');
 
@@ -378,276 +379,278 @@ export default function HomeScreen() {
   };
 
   return (
-    <>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}
-      >
-        <Animated.View
-          style={[
-            styles.hero,
-            {
-              opacity: fadeAnim,
-              transform: [{ translateY: slideAnim }],
-            },
-          ]}
+    <SwipeNavigator>
+      <>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
         >
-          <View style={styles.avatarContainer}>
-            <View style={styles.avatarRing}>
-              <ProfileImage />
-            </View>
-
-            <View style={styles.statusDot} />
-          </View>
-
-          <Text style={styles.name}>
-            Luiz Henrique Camelo
-          </Text>
-
-          <Text style={styles.role}>
-            Estudante de Ciência da Computação
-          </Text>
-
-          <Text style={styles.bio}>
-            Aprendendo desenvolvimento web e mobile,
-            com foco em interfaces modernas e lógica de
-            programação. Trabalho com React Native,
-            Expo e Next.js, tenho experiência acadêmica
-            com C e Python e participo de projetos reais
-            envolvendo tecnologia e desenvolvimento de
-            software.
-          </Text>
-
-          <View style={styles.badgeRow}>
-            <View style={styles.badge}>
-              <Ionicons
-                name="school-outline"
-                size={13}
-                color="#A78BFA"
-              />
-
-              <Text style={styles.badgeText}>
-                UNICAP
-              </Text>
-            </View>
-
-            <View style={styles.badge}>
-              <Ionicons
-                name="time-outline"
-                size={13}
-                color="#A78BFA"
-              />
-
-              <Text style={styles.badgeText}>
-                5º Período
-              </Text>
-            </View>
-          </View>
-        </Animated.View>
-
-        <Animated.View
-          style={[styles.section, { opacity: fadeAnim }]}
-        >
-          <Text style={styles.sectionTitle}>
-            Tecnologias
-          </Text>
-
-          <View style={styles.techGrid}>
-            {TECHS.map((tech) => (
-              <View key={tech} style={styles.techChip}>
-                <Text style={styles.techText}>
-                  {tech}
-                </Text>
-              </View>
-            ))}
-          </View>
-        </Animated.View>
-
-        <Animated.View
-          style={[styles.section, { opacity: fadeAnim }]}
-        >
-          <Text style={styles.sectionTitle}>
-            Destaques
-          </Text>
-
-          <AnimatedCard
-            style={styles.card}
-            onPress={() => abrirModal(MODAL_UNICAP)}
+          <Animated.View
+            style={[
+              styles.hero,
+              {
+                opacity: fadeAnim,
+                transform: [{ translateY: slideAnim }],
+              },
+            ]}
           >
-            <View style={styles.cardInner}>
-              <View style={styles.cardIcon}>
-                <Ionicons
-                  name="school"
-                  size={22}
-                  color="#7C3AED"
-                />
+            <View style={styles.avatarContainer}>
+              <View style={styles.avatarRing}>
+                <ProfileImage />
               </View>
 
-              <View style={styles.cardContent}>
-                <Text style={styles.cardTitle}>
-                  Ciência da Computação
-                </Text>
-
-                <Text style={styles.cardSub}>
-                  UNICAP • 2024.1 – Em andamento
-                </Text>
-              </View>
-
-              <Ionicons
-                name="chevron-forward"
-                size={16}
-                color="#3D3D5E"
-              />
+              <View style={styles.statusDot} />
             </View>
-          </AnimatedCard>
 
-          <AnimatedCard
-            style={styles.card}
-            onPress={() => abrirModal(MODAL_ECOMMERCE)}
-          >
-            <View style={styles.cardInner}>
-              <View
-                style={[
-                  styles.cardIcon,
-                  { backgroundColor: '#3B82F622' },
-                ]}
-              >
-                <Ionicons
-                  name="globe"
-                  size={22}
-                  color="#3B82F6"
-                />
-              </View>
-
-              <View style={styles.cardContent}>
-                <Text style={styles.cardTitle}>
-                  E-commerce publicado
-                </Text>
-
-                <Text style={styles.cardSub}>
-                  Next.js + Vercel • lutb.vercel.app
-                </Text>
-              </View>
-
-              <Ionicons
-                name="chevron-forward"
-                size={16}
-                color="#3D3D5E"
-              />
-            </View>
-          </AnimatedCard>
-
-          <AnimatedCard
-            style={styles.card}
-            onPress={() => abrirModal(MODAL_BIBLIOTECA)}
-          >
-            <View style={styles.cardInner}>
-              <View
-                style={[
-                  styles.cardIcon,
-                  { backgroundColor: '#10B98122' },
-                ]}
-              >
-                <Ionicons
-                  name="people"
-                  size={22}
-                  color="#10B981"
-                />
-              </View>
-
-              <View style={styles.cardContent}>
-                <Text style={styles.cardTitle}>
-                  Biblioteca Comunitária
-                </Text>
-
-                <Text style={styles.cardSub}>
-                  Caranguejo Tabaiares • Projeto social
-                </Text>
-              </View>
-
-              <Ionicons
-                name="chevron-forward"
-                size={16}
-                color="#3D3D5E"
-              />
-            </View>
-          </AnimatedCard>
-        </Animated.View>
-
-        <Animated.View
-          style={[
-            styles.section,
-            {
-              opacity: fadeAnim,
-              marginBottom: 32,
-            },
-          ]}
-        >
-          <Text style={styles.sectionTitle}>
-            Contato
-          </Text>
-
-          <View style={styles.emailBox}>
-            <Ionicons
-              name="mail-outline"
-              size={16}
-              color="#A78BFA"
-            />
-
-            <Text style={styles.emailText}>
-              luiz.00000852839@unicap.br
+            <Text style={styles.name}>
+              Luiz Henrique Camelo
             </Text>
-          </View>
 
-          <View style={styles.contactRow}>
-            <TouchableOpacity
-              style={styles.contactBtn}
-              onPress={() =>
-                Linking.openURL(
-                  'https://github.com/LuizHenriqueCamello'
-                )
-              }
+            <Text style={styles.role}>
+              Estudante de Ciência da Computação
+            </Text>
+
+            <Text style={styles.bio}>
+              Aprendendo desenvolvimento web e mobile,
+              com foco em interfaces modernas e lógica de
+              programação. Trabalho com React Native,
+              Expo e Next.js, tenho experiência acadêmica
+              com C e Python e participo de projetos reais
+              envolvendo tecnologia e desenvolvimento de
+              software.
+            </Text>
+
+            <View style={styles.badgeRow}>
+              <View style={styles.badge}>
+                <Ionicons
+                  name="school-outline"
+                  size={13}
+                  color="#A78BFA"
+                />
+
+                <Text style={styles.badgeText}>
+                  UNICAP
+                </Text>
+              </View>
+
+              <View style={styles.badge}>
+                <Ionicons
+                  name="time-outline"
+                  size={13}
+                  color="#A78BFA"
+                />
+
+                <Text style={styles.badgeText}>
+                  5º Período
+                </Text>
+              </View>
+            </View>
+          </Animated.View>
+
+          <Animated.View
+            style={[styles.section, { opacity: fadeAnim }]}
+          >
+            <Text style={styles.sectionTitle}>
+              Tecnologias
+            </Text>
+
+            <View style={styles.techGrid}>
+              {TECHS.map((tech) => (
+                <View key={tech} style={styles.techChip}>
+                  <Text style={styles.techText}>
+                    {tech}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          </Animated.View>
+
+          <Animated.View
+            style={[styles.section, { opacity: fadeAnim }]}
+          >
+            <Text style={styles.sectionTitle}>
+              Destaques
+            </Text>
+
+            <AnimatedCard
+              style={styles.card}
+              onPress={() => abrirModal(MODAL_UNICAP)}
             >
+              <View style={styles.cardInner}>
+                <View style={styles.cardIcon}>
+                  <Ionicons
+                    name="school"
+                    size={22}
+                    color="#7C3AED"
+                  />
+                </View>
+
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>
+                    Ciência da Computação
+                  </Text>
+
+                  <Text style={styles.cardSub}>
+                    UNICAP • 2024.1 – Em andamento
+                  </Text>
+                </View>
+
+                <Ionicons
+                  name="chevron-forward"
+                  size={16}
+                  color="#3D3D5E"
+                />
+              </View>
+            </AnimatedCard>
+
+            <AnimatedCard
+              style={styles.card}
+              onPress={() => abrirModal(MODAL_ECOMMERCE)}
+            >
+              <View style={styles.cardInner}>
+                <View
+                  style={[
+                    styles.cardIcon,
+                    { backgroundColor: '#3B82F622' },
+                  ]}
+                >
+                  <Ionicons
+                    name="globe"
+                    size={22}
+                    color="#3B82F6"
+                  />
+                </View>
+
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>
+                    E-commerce publicado
+                  </Text>
+
+                  <Text style={styles.cardSub}>
+                    Next.js + Vercel • lutb.vercel.app
+                  </Text>
+                </View>
+
+                <Ionicons
+                  name="chevron-forward"
+                  size={16}
+                  color="#3D3D5E"
+                />
+              </View>
+            </AnimatedCard>
+
+            <AnimatedCard
+              style={styles.card}
+              onPress={() => abrirModal(MODAL_BIBLIOTECA)}
+            >
+              <View style={styles.cardInner}>
+                <View
+                  style={[
+                    styles.cardIcon,
+                    { backgroundColor: '#10B98122' },
+                  ]}
+                >
+                  <Ionicons
+                    name="people"
+                    size={22}
+                    color="#10B981"
+                  />
+                </View>
+
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardTitle}>
+                    Biblioteca Comunitária
+                  </Text>
+
+                  <Text style={styles.cardSub}>
+                    Caranguejo Tabaiares • Projeto social
+                  </Text>
+                </View>
+
+                <Ionicons
+                  name="chevron-forward"
+                  size={16}
+                  color="#3D3D5E"
+                />
+              </View>
+            </AnimatedCard>
+          </Animated.View>
+
+          <Animated.View
+            style={[
+              styles.section,
+              {
+                opacity: fadeAnim,
+                marginBottom: 32,
+              },
+            ]}
+          >
+            <Text style={styles.sectionTitle}>
+              Contato
+            </Text>
+
+            <View style={styles.emailBox}>
               <Ionicons
-                name="logo-github"
-                size={20}
-                color="#F9FAFB"
+                name="mail-outline"
+                size={16}
+                color="#A78BFA"
               />
 
-              <Text style={styles.contactBtnText}>
-                GitHub
+              <Text style={styles.emailText}>
+                luiz.00000852839@unicap.br
               </Text>
-            </TouchableOpacity>
+            </View>
 
-            <TouchableOpacity
-              style={styles.contactBtn}
-              onPress={() =>
-                Linking.openURL(
-                  'mailto:luiz.00000852839@unicap.br'
-                )
-              }
-            >
-              <Ionicons
-                name="send-outline"
-                size={18}
-                color="#F9FAFB"
-              />
+            <View style={styles.contactRow}>
+              <TouchableOpacity
+                style={styles.contactBtn}
+                onPress={() =>
+                  Linking.openURL(
+                    'https://github.com/LuizHenriqueCamello'
+                  )
+                }
+              >
+                <Ionicons
+                  name="logo-github"
+                  size={20}
+                  color="#F9FAFB"
+                />
 
-              <Text style={styles.contactBtnText}>
-                Enviar e-mail
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </Animated.View>
-      </ScrollView>
+                <Text style={styles.contactBtnText}>
+                  GitHub
+                </Text>
+              </TouchableOpacity>
 
-      <DetalheModal
-        visible={modalVisible}
-        data={modalData}
-        onClose={fecharModal}
-      />
-    </>
+              <TouchableOpacity
+                style={styles.contactBtn}
+                onPress={() =>
+                  Linking.openURL(
+                    'mailto:luiz.00000852839@unicap.br'
+                  )
+                }
+              >
+                <Ionicons
+                  name="send-outline"
+                  size={18}
+                  color="#F9FAFB"
+                />
+
+                <Text style={styles.contactBtnText}>
+                  Enviar e-mail
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </Animated.View>
+        </ScrollView>
+
+        <DetalheModal
+          visible={modalVisible}
+          data={modalData}
+          onClose={fecharModal}
+        />
+      </>
+    </SwipeNavigator>
   );
 }
 
